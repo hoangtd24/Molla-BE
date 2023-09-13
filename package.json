@@ -45,6 +45,9 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:generate": "npm run typeorm migration:generate -- -d src/index.ts"
   },
+  "engines": {
+    "node": ">=14 <15"
+  },
   "author": "",
   "license": "ISC"
 }
