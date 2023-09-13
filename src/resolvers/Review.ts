@@ -10,11 +10,11 @@ import { Product } from "../entities/Product";
 import { Review } from "../entities/Review";
 import { User } from "../entities/User";
 import { ReviewResponse } from "../types/ReviewResponse";
-import { ReviewInput } from "../types/inputTypes/ReviewInput";
 import { checkAuth } from "../middleware/checkAuth";
 import { Context } from "../types/Context";
 import { PaginatedReview } from "../types/PaginatedReview";
 import { LessThan } from "typeorm";
+import { ReviewInput } from "../types/inputTypes/ReviewInput";
 
 @Resolver()
 export class ReviewResolver {

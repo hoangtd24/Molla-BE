@@ -18,10 +18,10 @@ const Product_1 = require("../entities/Product");
 const Review_1 = require("../entities/Review");
 const User_1 = require("../entities/User");
 const ReviewResponse_1 = require("../types/ReviewResponse");
-const ReviewInput_1 = require("../types/inputTypes/ReviewInput");
 const checkAuth_1 = require("../middleware/checkAuth");
 const PaginatedReview_1 = require("../types/PaginatedReview");
 const typeorm_1 = require("typeorm");
+const ReviewInput_1 = require("../types/inputTypes/ReviewInput");
 let ReviewResolver = exports.ReviewResolver = class ReviewResolver {
     async createReview({ rating, content, productId }, { user }) {
         try {
