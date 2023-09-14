@@ -161,7 +161,7 @@ export class UserResolver {
     });
     await sendMail(
       email,
-      `<a href="http://localhost:3000/change-password?token=${resetToken}&userId=${existingUser.id}">Click here to reset your password</a>`
+      `<a href="https://molla-shop.onrender.com/change-password?token=${resetToken}&userId=${existingUser.id}">Click here to reset your password</a>`
     );
     return {
       code: 200,

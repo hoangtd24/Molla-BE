@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendRefreshToken = exports.createRefreshToken = exports.createToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const constants_1 = require("src/constants");
 const createToken = (type, user) => {
     return jsonwebtoken_1.default.sign({ userId: user.id }, type === "accessToken"
         ? process.env.ACCESS_TOKEN_SECRET
@@ -21,8 +22,11 @@ const sendRefreshToken = (res, user, exp) => {
     res.cookie(process.env.REFRESH_TOKEN_NAME, exp ? (0, exports.createRefreshToken)(user, exp) : (0, exports.createToken)("refreshToken", user), {
         httpOnly: true,
         secure: true,
-        sameSite: "lax",
+        sameSite: "none",
         path: "/refresh_token",
+        domain: constants_1.__prod__
+            ? process.env.CORS_ORIGIN_PROD
+            : process.env.CORS_ORIGIN_DEV,
     });
 };
 exports.sendRefreshToken = sendRefreshToken;

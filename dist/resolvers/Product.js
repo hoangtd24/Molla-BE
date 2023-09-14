@@ -146,6 +146,9 @@ let ProductResolver = exports.ProductResolver = class ProductResolver {
                         return { id: product.id };
                     }),
                 },
+                relations: {
+                    discount: true,
+                },
             });
             console.log("everage rating", product.averageRating);
             return {

@@ -104,6 +104,8 @@ const main = async () => {
             apollo_server_core_1.ApolloServerPluginLandingPageGraphQLPlayground,
         ],
         context: ({ req, res }) => ({ req, res }),
+        cache: "bounded",
+        persistedQueries: false,
     });
     await apolloServer.start();
     await mongoose_1.default.connect(`mongodb+srv://hoangtd241100:${process.env.MONGOOSE_PASS}@cluster0.4ozdp8b.mongodb.net/`);

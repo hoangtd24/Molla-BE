@@ -151,7 +151,7 @@ let UserResolver = exports.UserResolver = class UserResolver {
             userId: existingUser.id,
             token: hashedResetToken,
         });
-        await (0, sendMail_1.sendMail)(email, `<a href="http://localhost:3000/change-password?token=${resetToken}&userId=${existingUser.id}">Click here to reset your password</a>`);
+        await (0, sendMail_1.sendMail)(email, `<a href="https://molla-shop.onrender.com/change-password?token=${resetToken}&userId=${existingUser.id}">Click here to reset your password</a>`);
         return {
             code: 200,
             success: true,

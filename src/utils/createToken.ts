@@ -1,5 +1,6 @@
 import { Response } from "express";
 import jwt, { Secret } from "jsonwebtoken";
+import { __prod__ } from "src/constants";
 import { User } from "src/entities/User";
 
 export const createToken = (
@@ -31,8 +32,11 @@ export const sendRefreshToken = (res: Response, user: User, exp?: number) => {
     {
       httpOnly: true,
       secure: true,
-      sameSite: "lax",
+      sameSite: "none",
       path: "/refresh_token",
+      domain: __prod__
+        ? process.env.CORS_ORIGIN_PROD
+        : process.env.CORS_ORIGIN_DEV,
     }
   );
 };
