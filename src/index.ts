@@ -117,6 +117,8 @@ const main = async () => {
       ApolloServerPluginLandingPageGraphQLPlayground,
     ],
     context: ({ req, res }) => ({ req, res }),
+    cache: "bounded",
+    persistedQueries: false,
   });
   await apolloServer.start();
 

@@ -161,6 +161,9 @@ export class ProductResolver {
             return { id: product.id };
           }),
         },
+        relations: {
+          discount: true,
+        },
       });
 
       console.log("everage rating", product.averageRating);
