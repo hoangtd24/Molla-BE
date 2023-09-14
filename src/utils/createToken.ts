@@ -1,7 +1,7 @@
 import { Response } from "express";
 import jwt, { Secret } from "jsonwebtoken";
-import { __prod__ } from "src/constants";
-import { User } from "src/entities/User";
+import { __prod__ } from "../constants";
+import { User } from "../entities/User";
 
 export const createToken = (
   type: "accessToken" | "refreshToken",
