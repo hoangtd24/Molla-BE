@@ -34,9 +34,8 @@ export const sendRefreshToken = (res: Response, user: User, exp?: number) => {
       secure: true,
       sameSite: "none",
       path: "/refresh_token",
-      domain: __prod__
-        ? process.env.CORS_ORIGIN_PROD
-        : process.env.CORS_ORIGIN_DEV,
+      domain: __prod__ ? process.env.COOKIE_DOMAIN : "localhost",
+      expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 24 * 4),
     }
   );
 };

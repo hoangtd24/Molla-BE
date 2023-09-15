@@ -24,9 +24,8 @@ const sendRefreshToken = (res, user, exp) => {
         secure: true,
         sameSite: "none",
         path: "/refresh_token",
-        domain: constants_1.__prod__
-            ? process.env.CORS_ORIGIN_PROD
-            : process.env.CORS_ORIGIN_DEV,
+        domain: constants_1.__prod__ ? process.env.COOKIE_DOMAIN : "localhost",
+        expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 24 * 4),
     });
 };
 exports.sendRefreshToken = sendRefreshToken;
