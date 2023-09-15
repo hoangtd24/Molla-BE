@@ -34,7 +34,7 @@ export const sendRefreshToken = (res: Response, user: User, exp?: number) => {
       secure: true,
       sameSite: "none",
       path: "/refresh_token",
-      domain: __prod__ ? process.env.COOKIE_DOMAIN : "localhost",
+      domain: __prod__ ? ".onrender.com" : "localhost",
       expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 24 * 4),
     }
   );
