@@ -74,6 +74,7 @@ const main = async () => {
         await exports.AppDataSource.runMigrations();
     }
     const app = (0, express_1.default)();
+    app.set("trust proxy", 1);
     app.use((0, cors_1.default)({
         origin: constants_1.__prod__
             ? process.env.CORS_ORIGIN_PROD
