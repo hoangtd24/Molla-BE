@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sendRefreshToken = exports.createRefreshToken = exports.createToken = void 0;
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const constants_1 = require("../constants");
 const createToken = (type, user) => {
     return jsonwebtoken_1.default.sign({ userId: user.id }, type === "accessToken"
         ? process.env.ACCESS_TOKEN_SECRET
@@ -23,8 +22,8 @@ const sendRefreshToken = (res, user, exp) => {
         httpOnly: true,
         secure: true,
         sameSite: "none",
-        path: "/refresh_token",
-        domain: constants_1.__prod__ ? ".onrender.com" : "localhost",
+        path: "/",
+        domain: ".onrender.com",
         expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 24 * 4),
     });
 };
