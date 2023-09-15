@@ -21,7 +21,7 @@ const sendRefreshToken = (res, user, exp) => {
     res.cookie(process.env.REFRESH_TOKEN_NAME, exp ? (0, exports.createRefreshToken)(user, exp) : (0, exports.createToken)("refreshToken", user), {
         httpOnly: true,
         secure: true,
-        sameSite: "none",
+        sameSite: "lax",
         path: "/",
         domain: ".onrender.com",
         expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 24 * 4),

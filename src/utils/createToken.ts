@@ -32,7 +32,7 @@ export const sendRefreshToken = (res: Response, user: User, exp?: number) => {
     {
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "lax",
       path: "/",
       domain: ".onrender.com",
       expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 24 * 4),
