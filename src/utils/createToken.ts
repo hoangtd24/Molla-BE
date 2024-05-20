@@ -34,7 +34,7 @@ export const sendRefreshToken = (res: Response, user: User, exp?: number) => {
       secure: true,
       sameSite: "lax",
       path: "/",
-      domain: ".onrender.com",
+      domain: "molla-shop.onrender",
       expires: new Date(new Date().getTime() + 60 * 1000 * 60 * 24 * 4),
     }
   );
