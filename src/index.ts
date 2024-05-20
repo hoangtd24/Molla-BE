@@ -124,7 +124,7 @@ const main = async () => {
   await apolloServer.start();
 
   await mongoose.connect(
-    `mongodb+srv://hoangtd241100:${process.env.MONGOOSE_PASS}@cluster0.4ozdp8b.mongodb.net/`
+    `mongodb+srv://18520783:${process.env.MONGOOSE_PASS}@cluster0.xafghfj.mongodb.net/`
   );
   apolloServer.applyMiddleware({
     app,
